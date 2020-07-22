@@ -1,0 +1,10 @@
+#/bin/sh
+
+##
+# erlang-version
+#
+# See: https://stackoverflow.com/questions/9560815/how-to-get-erlangs-release-version-number-from-a-shell
+# Thanks: https://stackoverflow.com/users/1515564/jay
+##
+
+erl -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), "releases", erlang:system_info(otp_release), "OTP_VERSION"])), io:fwrite(Version), halt().' -noshell
